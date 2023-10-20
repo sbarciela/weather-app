@@ -48,7 +48,7 @@ function SearchNavbar({handleNavbar , updateLocation}){
             {!data?null:
              <ul className={styles.resultsContainer}>
                 {data.map((item)=>
-                <li className={styles.result} onClick={()=>updateLocation(item.lat, item.lon)}>
+                <li key={crypto.randomUUID()} className={styles.result} onClick={()=>updateLocation(item.lat, item.lon)}>
                     <span>{item.name}</span>
                     <span className={styles.country}>{item.state}</span>
                     <span className={styles.arrow}><Navigate /></span>
