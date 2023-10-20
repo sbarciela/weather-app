@@ -11,17 +11,17 @@ import { ThreeDots } from  'react-loader-spinner'
 
 function WeatherResumeContainer({data, metric, updateLocation, handleGeolocation, isLoading}){
   
- const [navbarToggle, useNavbarToggle] =useState(false);
+ const [navbarToggle, setNavbarToggle] =useState(false);
 
  console.log(isLoading)
  
 
   const handleNavbar=()=>{
     if(navbarToggle===false){
-      useNavbarToggle(true)
+      setNavbarToggle(true)
     }
     else if(navbarToggle===true){
-      useNavbarToggle(false)
+      setNavbarToggle(false)
     }
   }
 
