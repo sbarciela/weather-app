@@ -1,11 +1,85 @@
+'use client'
+
 import Head from 'next/head'
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import WeatherResumeContainer from '@/components/weatherResumeContainer'
+import ForecastContainer from '@/components/ForecastContainer'
+import HighlightsContainer from '@/components/HighlightsContainer'
+import { useEffect, useState } from 'react'
+import useSWR, { useSWRConfig } from 'swr'
+import Loading from '@/components/Loading'
 
-const inter = Inter({ subsets: ['latin'] })
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+
+
 
 export default function Home() {
+  
+  const[location,setLocation]=useState({latitude:-34.6075682, longitude:-58.4370894})
+  const [celcius, setCelcius]=useState(true)
+  
+  let lat=location.latitude;
+  let long=location.longitude
+  let apiKey="2ba832c588192077c40d3a9f27d72607"
+  
+  //const { data, error, isLoading } = useSWR(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=metric`, fetcher)
+  //http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=imperial
+  const { data, error, isLoading } = useSWR(celcius===false ? `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=imperial`:`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=metric`, fetcher)
+ 
+
+
+    function fetchFarenheit(){
+               setCelcius(false)
+    }
+
+    function fetchCelcius(){
+        setCelcius(true)
+    }
+
+    function updateLocation(latitude,longitude){
+      setLocation({latitude,longitude})
+      
+    }
+
+    function handleGeolocation(){
+      if('geolocation' in navigator ) {
+        // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
+        navigator.geolocation.getCurrentPosition(({ coords }) => {
+            const { latitude, longitude } = coords;
+            setLocation({ latitude, longitude });
+        })                
+      }
+    }
+    
+
+  useEffect(() => {
+        if('geolocation' in navigator ) {
+            // Retrieve latitude & longitude coordinates from `navigator.geolocation` Web API
+            navigator.geolocation.getCurrentPosition(({ coords }) => {
+                const { latitude, longitude } = coords;
+                setLocation({ latitude, longitude });
+            })
+            
+                     
+        }
+    }, []);
+    
+
+  useEffect(() => {
+    
+        
+  }, [location]);
+    
+
+console.log(isLoading)
+
+
+
+
+
+
   return (
     <>
       <Head>
@@ -14,101 +88,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+      {data?
+      <div className='weather-grid'>
+        <WeatherResumeContainer
+         data={data}
+         metric={celcius}
+         updateLocation={updateLocation}
+         handleGeolocation={handleGeolocation}
+         />
+        <div className="grid-mainContent">
+          <ForecastContainer data={data} metric={celcius} fetchFarenheit={fetchFarenheit} fetchCelcius={fetchCelcius} />
+          <HighlightsContainer data={data} metric={celcius} />
+        </div>  
+      </div>:null
+      }
+      {isLoading?<Loading />
+      :null}
+           
+      
+      
+      
     </>
   )
 }

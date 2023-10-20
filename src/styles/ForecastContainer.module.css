@@ -1,0 +1,117 @@
+.container{
+    background-color:#100E1D;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:26px;
+    margin: 52px 0px;
+    
+}
+
+.temperatureContainer{
+grid-column: 1 / 6;
+text-align: end;
+font-size: 18px;
+font-weight: 700;
+line-height: 21px;
+letter-spacing: 0em;
+display: none ;
+
+
+}
+.active{
+    background-color:#E7E7EB ;
+    color:#110E3C;
+    border-radius: 54px;
+    width: 40px;
+    height: 40px;
+   display: inline-flex;
+   justify-content: center;
+   align-content: center;
+   flex-wrap: wrap;
+   cursor: pointer;
+}
+
+.inactive{
+    background-color:#585676 ;
+    color:#E7E7EB;
+    border-radius: 54px;
+    width: 40px;
+    height: 40px;
+   display: inline-flex;
+   justify-content: center;
+   align-content: center;
+   flex-wrap: wrap;
+   cursor: pointer;
+   
+}
+.active:hover{
+    box-shadow: 0px 5px 20px -10px  rgba(190, 189, 189, 0.57);
+    transform:scale(0.98) ;
+    transition: all 0.1s;
+}
+.inactive:hover{
+    box-shadow: 0px 5px 20px -10px rgba(190, 189, 189, 0.57);
+    transform:scale(0.98) ;
+    transition: all 0.1s;
+}
+.margin{
+    margin-right: 12px;
+}
+
+.forecast{
+width: 120px;
+height: 177px;
+background-color: #1E213A;
+color: #E7E7EB;
+font-size: 16px;
+font-weight: 500;
+line-height: 19px;
+letter-spacing: 0em;
+display: flex;
+flex-direction: column;
+align-content: center;
+justify-content: center;
+align-items: center;
+
+}
+
+
+.mainImage{
+    width: auto;
+    height: 62px;  
+}
+
+.title{
+    margin-bottom: 10px;
+}
+.maxAndMin{
+    margin-top: 31px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+@media (min-width:1024px){
+   .container{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+     margin: 0 auto;
+     align-content: center;
+     gap: 18px;
+   }
+   .temperatureContainer{
+    display: block;
+    margin-top: 18px;
+   }
+   }
+
+   @media (min-width:1440px){
+    .container{
+     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+     margin: 0 auto;
+     align-content: center;
+     gap: 26px;
+    }
+    .temperatureContainer{
+        margin-top: 42px;
+    }
+    }
+

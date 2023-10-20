@@ -1,0 +1,165 @@
+
+.background{
+     background-position: 50% 20%;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 326px;
+    align-content: center;
+   
+   
+   
+}
+.mainImage{
+  z-index: 1;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 150px;
+  height: auto;
+  
+}
+
+.mainTemperaute{
+  text-align: center;
+ 
+}
+
+.temperature{
+  font-size: 144px;
+  line-height: 34px;
+  height: 35px;
+  font-weight: 500;
+  color: #E7E7EB;
+}
+
+.celcius{
+  font-size:48px;
+  line-height: 56.35px;
+  font-weight: 500;
+  color: #A09FB1;
+}
+
+.stateWeather{
+font-size: 36px;
+font-weight: 600;
+line-height: 42px;
+letter-spacing: 0em;
+color: #A09FB1;
+padding-top: 23px;
+padding-bottom: 48px  
+;
+}
+
+.dateWeather{
+font-size: 18px;
+font-weight: 500;
+line-height: 21px;
+letter-spacing: 0em;
+color:#88869D
+}
+.dateWeather2{
+font-size: 18px;
+font-weight: 500;
+line-height: 21px;
+letter-spacing: 0em;
+color:#88869D;
+padding-top: 32px;
+padding-bottom: 103px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.dateWeather2 span{
+  margin-left: 4px;
+}
+
+.shakeVertical {
+	-webkit-animation: shake-vertical 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+	        animation: shake-vertical 10s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+ @-webkit-keyframes shake-vertical {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  80% {
+    -webkit-transform: translateY(6.4px);
+            transform: translateY(6.4px);
+  }
+  90% {
+    -webkit-transform: translateY(-6.4px);
+            transform: translateY(-6.4px);
+  }
+}
+@keyframes shake-vertical {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  80% {
+    -webkit-transform: translateY(6.4px);
+            transform: translateY(6.4px);
+  }
+  90% {
+    -webkit-transform: translateY(-6.4px);
+            transform: translateY(-6.4px);
+  }
+}
+
+
+@media (min-width:1024px){
+  .mainTemperaute{
+    margin-top: 33px;
+  }
+}
+
+@media (min-width:1440px){
+  .mainImage{
+    height: auto;
+    width: 202px;
+  }
+  .background{
+    height: 376px!important ;
+    
+  }
+  .stateWeather{
+    padding-top: 87px;
+    padding-bottom: 87px;
+  }
+  
+}
