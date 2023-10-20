@@ -16,7 +16,7 @@ function SearchNavbar({handleNavbar , updateLocation}){
     
     let field=useRef();
     let apiKey="2ba832c588192077c40d3a9f27d72607"
-    const { data, error, isLoading } = useSWR(cityName ? `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${apiKey}`:null, fetcher)
+    const { data, error, isLoading } = useSWR(cityName ? `https://corsproxy.io/?http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${apiKey}`:null, fetcher)
 
     function submitHandler(e){
         e.preventDefault()
