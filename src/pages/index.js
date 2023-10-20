@@ -26,7 +26,7 @@ export default function Home() {
   
   //const { data, error, isLoading } = useSWR(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=metric`, fetcher)
   //http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=imperial
-  const { data, error, isLoading } = useSWR(celcius===false ? `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=imperial`:`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=metric`, fetcher)
+  const { data, error, isLoading } = useSWR(celcius===false ? `https://corsproxy.io/?http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=imperial`:`https://corsproxy.io/?http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&&appid=${apiKey}&units=metric`, fetcher)
  
 
 
