@@ -3,7 +3,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
-import WeatherResumeContainer from '@/components/weatherResumeContainer'
+import WeatherResumeContainer from '@/components/WeatherResumeContainer'
 import ForecastContainer from '@/components/ForecastContainer'
 import HighlightsContainer from '@/components/HighlightsContainer'
 import { useEffect, useState } from 'react'
