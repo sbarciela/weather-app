@@ -24,8 +24,8 @@ position: absolute;
     border: 1px solid #E7E7EB;    
     display: flex;
     align-items: center;
-    padding-left: 12px;
-    width: 240px;
+    /*padding-left: 12px;
+    width: 240px;*/
 }
 
 .input{
