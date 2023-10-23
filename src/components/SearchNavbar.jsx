@@ -53,6 +53,7 @@ function SearchNavbar({handleNavbar , updateLocation}){
             </ul>
             }
             {isLoading?<Loading />:null}
+            {data&&data.length===0?<div className='fetch2'>Sorry, we couldn't find any results</div>:null}
            
         </div>
     )

@@ -60,6 +60,7 @@ export default function Home() {
             navigator.geolocation.getCurrentPosition(({ coords }) => {
                 const { latitude, longitude } = coords;
                 setLocation({ latitude, longitude });
+                
             })
             
                      
@@ -72,9 +73,6 @@ export default function Home() {
         
   }, [location]);
     
-
-
-
 
 
 
