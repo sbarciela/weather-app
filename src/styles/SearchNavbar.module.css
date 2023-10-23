@@ -24,8 +24,8 @@ position: absolute;
     border: 1px solid #E7E7EB;    
     display: flex;
     align-items: center;
-    /*padding-left: 12px;
-    width: 240px;*/
+    padding-left: 12px;
+    /*width: 240px;*/
 }
 
 .input{
@@ -39,6 +39,7 @@ position: absolute;
     line-height: 19px;
     letter-spacing: 0em;
     margin-left: 13px;
+    width: 150px;
 }
 
 .input::placeholder{
@@ -95,3 +96,9 @@ padding: 0;
     border: 1px solid #616475
 }
 
+@media (min-width:375px){
+    .input{
+        width: auto;
+    }
+    
+}
