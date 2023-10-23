@@ -24,11 +24,7 @@ function SearchNavbar({handleNavbar , updateLocation}){
         setCityName(cityName)
     }
 
-    function update(value){
-        //return updateLocation(latitud,longitud)
-        console.log(value)
-    }
-    
+     
   
   
 

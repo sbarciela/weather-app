@@ -13,7 +13,7 @@ function WeatherResumeContainer({data, metric, updateLocation, handleGeolocation
   
  const [navbarToggle, setNavbarToggle] =useState(false);
 
- console.log(isLoading)
+ 
  
 
   const handleNavbar=()=>{

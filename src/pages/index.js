@@ -73,7 +73,7 @@ export default function Home() {
   }, [location]);
     
 
-console.log(isLoading)
+
 
 
 
