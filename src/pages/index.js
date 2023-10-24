@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Weather report</title>
+        <title>Weather Report</title>
         <meta name="description" content="A weather aplication for the devchallenges.io proposal" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
