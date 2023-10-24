@@ -37,7 +37,7 @@ function SearchNavbar({handleNavbar , updateLocation}){
             <form className={styles.form} onSubmit={submitHandler} >
                 <div className={styles.inputContainer}>
                     <Search style={{fill:"#616475"}}/>
-                    <input className={styles.input} type="text" placeholder='search location' ref={field} />         
+                    <input autoFocus className={styles.input} type="text" placeholder='search location' ref={field} />         
                 </div>
                 <button  className={styles.searchButton}>Search</button>
             </form>
